@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment-six</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.cdnfonts.com/css/lexend-deca" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/4365136773.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- Header Start -->
+    <header>
+      <div class="header-div lg:mx-20 md:mx-14 mt-10">
+        <!-- Navbar Start -->
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <!-- Dropdown Menu Start -->
+            <details class="dropdown lg:hidden md:hidden">
+              <summary class="btn m-1">
+                <i class="fa-solid fa-bars"></i>
+              </summary>
+              <ul
+                class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+              >
+                <li><a>Home</a></li>
+                <li><a>Shop</a></li>
+                <li><a>Contact</a></li>
+              </ul>
+            </details>
+            <!-- Dropdown Menu End -->
+            <div class="flex gap-2 items-center">
+              <img class="w-full h-full" src="images/logo.webp" alt="" />
+              <h1 class="text-2xl font-extrabold">Peddy</h1>
+            </div>
+          </div>
+          <div class="navbar-center hidden md:block lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li><a class="text-slate-600">Home</a></li>
+              <li><a class="text-slate-600">Shop</a></li>
+              <li><a class="text-slate-600">Contact</a></li>
+            </ul>
+          </div>
+          <div class="navbar-end">
+            <button>
+              <i class="fa-regular fa-user rounded-full border p-3"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Navbar End -->
+        <!-- Below Navbar Start -->
+        <div
+          class="flex flex-col items-center text-center gap-5 lg:mx-20 mx-10 mt-14"
+        >
+          <p class="text-slate-600 lg:text-2xl text-xl">
+            Bringing Families Together ❤️‍🔥
+          </p>
+          <h1 class="lg:text-6xl text-3xl font-bold">
+            Your Path to Adoption <br />
+            Starts Here
+          </h1>
+          <p class="text-slate-600">
+            Peddy is a fictional website that provides a platform for users to explore, adopt, and learn more about pets. It offers a user-friendly experience, where visitors can browse various pet categories, view detailed information about available pets, and even mark their favorite pet images. 
+          </p>
+          <button
+            onclick="scrollToMain()"
+            class="view-more-btn lg:px-8 lg:py-4 px-4 py-2 lg:text-xl"
+          >
+            View More
+          </button>
+          <img src="images/pet.webp" alt="dog and cat images" />
+        </div>
+        <!-- Below Navbar End -->
+      </div>
+    </header>
+    <!-- Header End -->
+    <!-- Main Start -->
+
+    <main id="mainSection" class="main-div mt-10 lg:mx-10 md:mx-10 mx-3">
+      <!-- Main Heading and Paragraph Start -->
+      <div class="flex gap-5 items-center flex-col text-center mb-10 lg:mx-20">
+        <h1 class="lg:text-4xl text-2xl font-bold">Adopt Your Best Friend</h1>
+        <p class="text-slate-600">
+          Peddy is a fictional website that provides a platform for users to explore, adopt, and learn more about pets. It offers a user-friendly experience, where visitors can browse various pet categories, view detailed information about available pets, and even mark their favorite pet images. 
+        </p>
+      </div>
+      <!-- Main Heading and Paragraph End -->
+      <!-- Testing Part for JavaScript Start-->
+      <!-- Catagories Button Start -->
+      <div
+        id="post-category"
+        class="lg:mx-20 md:mx-10 gap-2 mt-10 flex justify-between flex-wrap"
+      ></div>
+      <!-- Catagories Button End -->
+      <!-- Best deal & sort Start -->
+      <div class="lg:mx-20 md:mx-10 mt-10">
+        <div class="upper-main-div flex justify-between">
+          <h1 class="lg:text-2xl md:text-2xl text-xl font-bold">
+            Best Deal For You
+          </h1>
+          <button id="sortButton" class="sort-btn px-5 py-2">Sort by Price</button>
+        </div>
+        <div class="lower-main-div"></div>
+      </div>
+      <!-- Best deal & sort End -->
+      <!-- Catagories All Start -->
+      <div class="lg:mx-20 flex gap-5 md:mx-10 my-10">
+        <div
+          id="post-container"
+          class="w-9/12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5"
+        >
+        <!-- <div id="spinner" class="spinner hidden"> 
+          <img src="images/loading-gif.gif" alt="Loading..." /> 
+        </div>
+         -->
+      </div>
+        <div
+          id="get-image-container"
+          class="w-3/12 h-full border p-3 rounded-lg grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-2"
+        ></div>
+      </div>
+      <!-- Catagories All End -->
+      <!-- Testing Part for JavaScript End-->
+      <dialog
+        id="detailsModal"
+        class="modal modal-bottom sm:modal-middle"
+      ></dialog>
+      <dialog
+        id="adopt-modal-div"
+        class="modal modal-bottom sm:modal-middle"
+      ></dialog>
+      <!-- test -->
+
+     <!-- Open the modal using ID.showModal() method -->
+     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div class="flex flex-col justify-center items-center gap-5">
+          <img src="images/logo.webp" alt="">
+          <h1 class="text-3xl font-bold">Congrates</h1>
+          <p>Adoption Process is Start For your Pet</p>
+          <!-- Countdown display -->
+          <span class="text-4xl font-black" id="countdown">3</span>
+        </div>
+      </div>
+    </dialog>
+    
+    
+
+      <!-- test -->
+    </main>
+    <!-- Main End -->
+
+    <!-- Footer Start -->
+    <footer
+      class="footer-div bg-black text-white flex lg:flex-row md:flex-row flex-col justify-between lg:px-20 md:px-14 py-10 items-center lg:items-start md:items-start text-center lg:text-left md:text-left"
+    >
+      <div class="left-footer flex flex-col mb-20 lg:mb-0 md:mb-0">
+        <div
+          class="flex gap-3 items-center justify-center lg:justify-normal md:justify-normal mb-10"
+        >
+          <img class="" src="images/logo.webp" alt="" />
+          <h1 class="font-bold lg:text-3xl text-xl md:text-xl">Peddy</h1>
+        </div>
+        <div class="flex flex-col gap-2">
+          <p>Location: av. Washington 165, NY CA 54003</p>
+          <p>Phone: +31 85 964 47 25</p>
+          <p>Email: info@yourdomain.com</p>
+          <p>Openings hours: 9.00 AM - 5.00 PM</p>
+          <div
+            class="flex items-center gap-3 justify-center lg:justify-normal md:justify-normal"
+          >
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a href="https://x.com/"
+              ><i class="fa-brands fa-x-twitter" target="_blank"></i
+            ></a>
+            <a href="https://www.youtube.com/" target="_blank"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="middle-footer flex flex-col justify-between mb-20 lg:mb-0 md:mb-0"
+      >
+        <h1 class="mb-10 lg:text-2xl text-xl md:text-xl font-bold">
+          Useful Links
+        </h1>
+        <a class="pb-1 text-slate-300" href=""> Home </a>
+        <a class="pb-1 text-slate-300" href="">About Us</a>
+        <a class="pb-1 text-slate-300" href="">Animals</a>
+        <a class="pb-1 text-slate-300" href="">Foundation</a>
+        <a class="text-slate-300" href="">Contact</a>
+      </div>
+      <div class="right-footer flex flex-col justify-between">
+        <h1 class="lg:text-2xl text-xl md:text-xl font-bold mb-10">
+          Drop a Message
+        </h1>
+        <div class="flex flex-col gap-3">
+          <input
+            class="email-class"
+            type="email"
+            placeholder="Enter your email"
+            name=""
+            id=""
+          />
+          <button class="subscribe-btn px-28" type="submit">Subscribe</button>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+    <!-- Java-Script Link to index.html -->
+    <script src="index.js"></script>
+  </body>
+</html>
